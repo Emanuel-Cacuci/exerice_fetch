@@ -39,3 +39,81 @@ getUsers();
 
 // méthod POST
 
+const nouvelArticle={
+
+    userId: 1,
+    id: 1,
+    title: 'delectus aut autem',
+    completed: false
+}
+
+fetch('https://jsonplaceholder.typicode.com/posts',{
+
+    method: 'POST',
+    headers: {
+        contentType:"application/json"
+    },
+    body:JSON.stringify(nouvelArticle)
+})
+.then(res => res.json())
+.then(data => console.log('Article ajouté :', data));
+
+async function ajouterArticle() {
+    try{
+        const reponse = await fetch('https://jsonplaceholder.typicode.com/posts',{
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(nouvelArticle)
+          });
+      
+          const data = await response.json();
+          console.log('Article ajouté :', data);
+        } catch (error) {
+          console.error('Erreur lors de l’envoi :', error);
+        }
+      }
+
+     // HEADER: en téte HTTP envoyés au serveur des données en format JSON, je envoie des données au format JSON {Content-Type: "application/json"}
+    //  body:JSON.stringify(nouvelArticle), transforme l'objet en chaine JSON
+
+    // method PUT modifier un article
+    const articleModif ={
+
+        userId: 1,
+        id: 1,
+        title: 'delectus aut autem',
+        completed: false
+    }
+
+    fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(articleModif)
+    }).then(res => res.json())
+    .then(data => console.log('Mise à jour :', data));
+
+    // // Method DELETE
+    // fetch('https://jsonplaceholder.typicode.com/posts/1', {
+    //     method: 'DELETE'
+    // })
+    // .then(res => res.json())
+    // .then(data => console.log('Suppression effectuée :', data));
+
+
+    function suppression(id){
+        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{
+
+            method: 'DELETE'
+        })
+
+        .then(res => res.json())
+        .then(data => console.log('Suppression effectuée :', data))
+        .catch(error => console.error(error));
+
+    }
+    
+
