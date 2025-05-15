@@ -1,0 +1,25 @@
+{
+    "produits": [
+      {
+        "id": 1,
+        "nom": "Ordinateur portable",
+        "prix": 799.99,
+        "enStock": true,
+        "categories": ["Informatique", "Portable"]
+      },
+      {
+        "id": 2,
+        "nom": "Clavier mécanique",
+        "prix": 59.99,
+        "enStock": false,
+        "categories": ["Accessoire", "Clavier"]
+      },
+      {
+        "id": 3,
+        "nom": "Écran 24 pouces",
+        "prix": 129.5,
+        "enStock": true,
+        "categories": ["Informatique", "Écran"]
+      }
+    ]
+  }
